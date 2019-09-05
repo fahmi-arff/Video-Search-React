@@ -7,6 +7,11 @@ import VideoDetail from './VideoDetail';
 class App extends React.Component {
   state = {videos: [], selectedVideo: null }
 
+  componentDidMount() {
+    // default search query
+    this.onTermSubmit('best ever food review')
+  }
+
   onTermSubmit = async term => {
     const response = await youtube.get('/search', {
       params: {
